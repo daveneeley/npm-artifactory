@@ -20,7 +20,7 @@ module.exports.meta = function(req, res){
                 return;
             }
             // todo: just do the get with accepts: text/plain
-            var proxyPath = 'http://' + config.host + ':' + config.port;
+            var proxyPath = config.protocol + '://' + config.host + ':' + config.port;
             body = JSON.parse(JSON.stringify(body).replace(new RegExp(url.format(config.npm), 'g'), proxyPath));
 
             request.put({uri: artPath, body: body}, function(){
@@ -44,7 +44,7 @@ module.exports.version = function(req, res){
             // prepare local metadata file in artifact version
 
             // todo: just do the GET with accepts: text/plain
-            var proxyPath = 'http://' + config.host + ':' + config.port;
+            var proxyPath = config.protocol + '://' + config.host + ':' + config.port;
             body = JSON.parse(JSON.stringify(body).replace(new RegExp(url.format(config.npm), 'g'), proxyPath));
 
             request.put({uri: versionPath, json: body}, function(){
