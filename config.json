@@ -10,8 +10,12 @@
         "protocol": "http",
         "host": "registry.npmjs.org"
     },
-    "host": "localhost",
-    "protocol": "http",
+    "rewrite": {
+        "host": "localhost",
+        "pathname": "",
+        "protocol": "http",
+        "port": 3000
+    }
     "proxy": null,
     "port": 3000 
 }
